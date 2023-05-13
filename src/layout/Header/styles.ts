@@ -8,6 +8,7 @@ export const Container = styled.div`
   transition: all 0.3s;
   width: 100%;
   height: 100px;
+
   &::before {
     content: "";
     position: absolute;
@@ -28,6 +29,22 @@ export const ImageLogo = styled.img`
 `;
 
 export const Navbar = styled.div`
-  font-size: 16px;
-  background-color: #fff;
+  display: flex;
+  gap: 10px;
+
+  a {
+    color: ${(props) => props.theme.colors.red};
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 700;
+    background-color: ${(props) => props.theme.colors.white};
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.red};
+      color: ${(props) => props.theme.colors.white};
+    }
+  }
 `;

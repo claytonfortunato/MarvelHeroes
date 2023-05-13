@@ -10,7 +10,7 @@ export const Header = () => {
       <C.Navbar>
         <a href="">Home</a>
         <a href="">Comics</a>
-        <a href=""></a>
+        <a href="">Abouts</a>
       </C.Navbar>
     </C.Container>
   );

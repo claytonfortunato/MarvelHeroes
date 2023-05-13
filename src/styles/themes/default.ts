@@ -1,3 +1,6 @@
 export const defaultTheme = {
-  colors: {},
+  colors: {
+    red: "#f21628",
+    white: "#fff",
+  },
 };
