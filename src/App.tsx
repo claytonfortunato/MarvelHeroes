@@ -1,8 +1,15 @@
+import { Home } from "./pages/Home";
+
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
+import { defaultTheme } from "./styles/themes/default";
+
 function App() {
   return (
-    <div>
-      <h1>Marvel Page</h1>
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
+      <Home />
+    </ThemeProvider>
   );
 }
 
