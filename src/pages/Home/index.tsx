@@ -7,6 +7,10 @@ import * as C from "./styles";
 
 import api from "../../services/api";
 
+const time = Number(new Date());
+
+const hash = md5(time + privateKey + publicKey);
+
 interface Props {
   name: string;
   description: string;
