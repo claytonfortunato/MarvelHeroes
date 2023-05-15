@@ -8,9 +8,11 @@ export const Header = () => {
       <C.ImageLogo src={Logo} />
 
       <C.Navbar>
-        <a href="">Home</a>
+        <a href="">Characters</a>
         <a href="">Comics</a>
-        <a href="">Abouts</a>
+        <a href="">Creators</a>
+        <a href="">Events</a>
+        <a href="">Series</a>
       </C.Navbar>
     </C.Container>
   );
