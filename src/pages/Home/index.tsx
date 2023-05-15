@@ -6,6 +6,10 @@ import { Header } from "../../layout/Header";
 import * as C from "./styles";
 
 import api from "../../services/api";
+import { Characters } from "../../components/Characters";
+
+const publicKey = "9bef221ea2c9e669f3457b628732f017";
+const privateKey = "9284aa0ab2a2e5fb907b1e0b82cd3032d92420a7";
 
 const time = Number(new Date());
 
@@ -14,7 +18,10 @@ const hash = md5(time + privateKey + publicKey);
 interface Props {
   name: string;
   description: string;
-  thumbnail: string;
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
 }
 
 export const Home = () => {
@@ -22,11 +29,8 @@ export const Home = () => {
 
   useEffect(() => {
     api
-      .get(
-        `/characters?ts=${time}&apikey=${process.env.REACT_APP_KEYPUBLIC}&hash=${hash}`
-      )
+      .get(`/characters?ts=${time}&apikey=${publicKey}&hash=${hash}`)
       .then((res) => {
-        console.log(res.data.data);
         setCharacter(res.data.data.results);
       })
       .catch((err) => console.log(err));
@@ -36,9 +40,11 @@ export const Home = () => {
     <C.Container>
       <Header />
 
-      {character.map((character) => (
-        <p>{character.name}</p>
-      ))}
+      <C.Content>
+        {character.map((character) => (
+          <Characters key={character.id} name={character.name} />
+        ))}
+      </C.Content>
     </C.Container>
   );
 };
