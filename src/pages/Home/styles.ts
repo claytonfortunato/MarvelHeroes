@@ -29,7 +29,7 @@ export const Content = styled.div`
 
 export const ContentCarousel = styled.div`
   width: 100%;
-  height: 600px;
+  padding: 10px;
   background-color: #333;
 `;
 
@@ -38,11 +38,13 @@ export const HeaderCarousel = styled.h1`
   text-align: center;
   font-size: 24px;
   font-weight: 500;
+  background-color: ${(props) => props.theme.colors.red};
 `;
 
 export const BoxChar = styled.div`
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
 
   .box {
     display: flex;
@@ -50,14 +52,21 @@ export const BoxChar = styled.div`
     align-items: center;
 
     width: 100%;
-    height: 100%;
+
     background-color: #fff;
-    margin: 10px;
+    margin: 16px;
 
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.1;
+    }
 
     p {
-      font-size: 18px;
+      font-size: 12px;
+      margin-right: 18px;
     }
 
     img {

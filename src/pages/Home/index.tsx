@@ -14,8 +14,9 @@ export const Home = () => {
 
   useEffect(() => {
     api
-      .get(`/characters`)
+      .get(`/comics?startYear=2021`)
       .then((res) => {
+        console.log(res.data.data.results);
         setCharacter(res.data.data.results);
       })
       .catch((err) => console.log(err));
@@ -26,7 +27,7 @@ export const Home = () => {
       <Header />
 
       <C.ContentCarousel>
-        <C.HeaderCarousel>Start Year</C.HeaderCarousel>
+        <C.HeaderCarousel>Start Year 2021</C.HeaderCarousel>
 
         <C.BoxChar>
           {character.map((character) => (
@@ -35,7 +36,7 @@ export const Home = () => {
                 src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                 alt=""
               />
-              <p>{character.name}</p>
+              <p>{character.title}</p>
             </div>
           ))}
         </C.BoxChar>
