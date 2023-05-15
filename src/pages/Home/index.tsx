@@ -24,6 +24,22 @@ export const Home = () => {
   return (
     <C.Container>
       <Header />
+
+      <C.ContentCarousel>
+        <C.HeaderCarousel>Start Year</C.HeaderCarousel>
+
+        <C.BoxChar>
+          {character.map((character) => (
+            <div className="box">
+              <img
+                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                alt=""
+              />
+              <p>{character.name}</p>
+            </div>
+          ))}
+        </C.BoxChar>
+      </C.ContentCarousel>
     </C.Container>
   );
 };
