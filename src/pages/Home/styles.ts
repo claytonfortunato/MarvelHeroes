@@ -43,8 +43,6 @@ export const HeaderCarousel = styled.h1`
 
 export const BoxChar = styled.div`
   display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
 
   .box {
     display: flex;
@@ -54,11 +52,13 @@ export const BoxChar = styled.div`
     width: 100%;
 
     background-color: #fff;
-    margin: 16px;
+    margin: 10px;
 
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
     transition: all 0.3s ease-in;
     cursor: pointer;
+
+    margin-bottom: 40px;
 
     &:hover {
       scale: 1.1;
