@@ -1,11 +1,13 @@
-import { BrowserRouter as Route, Routes, Router } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Character } from "../pages/Character";
 import { Comics } from "../pages/Comics";
+import { Home } from "../pages/Home";
 
-const AppRouter = () => {
+function AppRouter() {
   return (
-    <Router>
+    <BrowserRouter>
+      <Home />
       <Routes>
         <Route />
 
@@ -14,8 +16,8 @@ const AppRouter = () => {
         <Route path="/creators" />
         <Route path="/series" />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-};
+}
 
 export default AppRouter;

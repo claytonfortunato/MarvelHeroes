@@ -1,4 +1,5 @@
 import Logo from "../../assets/marvel.svg";
+import { Link } from "react-router-dom";
 
 import * as C from "./styles";
 
@@ -8,8 +9,12 @@ export const Header = () => {
       <C.ImageLogo src={Logo} />
 
       <C.Navbar>
-        <a href="">Characters</a>
-        <a href="">Comics</a>
+        <Link to="/characters">
+          <a href="">Characters</a>
+        </Link>
+        <Link to="/comics">
+          <a href="">Comics</a>
+        </Link>
         <a href="">Creators</a>
         <a href="">Events</a>
         <a href="">Series</a>

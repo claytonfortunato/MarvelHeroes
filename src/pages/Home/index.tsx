@@ -16,7 +16,6 @@ export const Home = () => {
     api
       .get(`/comics?startYear=2021`)
       .then((res) => {
-        console.log(res.data.data.results);
         setCharacter(res.data.data.results);
       })
       .catch((err) => console.log(err));
