@@ -4,20 +4,18 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: 100%;
-
-  margin: 10px;
+  max-width: 100%;
 
   transition: all 0.3s ease-in;
   cursor: pointer;
+  margin-bottom: 12px;
 
   &:hover {
     scale: 1.1;
   }
 
   img {
-    width: 360px;
+    max-width: 300px;
     height: 300px;
     border-radius: 6px;
   }

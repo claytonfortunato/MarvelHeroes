@@ -16,8 +16,10 @@ export const HeaderCarousel = styled.h1`
   font-size: 24px;
   font-weight: 500;
   background-color: ${(props) => props.theme.colors.red};
+  border-radius: 12px;
 `;
 
 export const BoxChar = styled.div`
   display: flex;
+  margin: 14px;
 `;

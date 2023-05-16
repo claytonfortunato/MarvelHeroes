@@ -17,5 +17,6 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background: #222;
         background-image: url(${background});
+        
     }
 `;

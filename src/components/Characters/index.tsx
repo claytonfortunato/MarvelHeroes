@@ -1,12 +1,15 @@
 import * as C from "./styles";
 
-import { PropsData } from "../../@types/types";
+interface CharProps {
+  name: string;
+  image: string;
+}
 
-export const Characters = ({ name, id }: PropsData) => {
+export const Characters = ({ name, image }: CharProps) => {
   return (
     <C.Container>
-      <h1>{name}</h1>
-      <span>{id}</span>
+      <img src={image} alt="" />
+      <C.Header>{name}</C.Header>
     </C.Container>
   );
 };

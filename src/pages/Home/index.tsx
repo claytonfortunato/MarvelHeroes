@@ -14,13 +14,13 @@ import * as C from "./styles";
 import { SliderYear } from "../../components/SliderYear";
 
 export const Home = () => {
-  const [character, setCharacter] = useState<PropsData[]>([]);
+  const [year, setYear] = useState<PropsData[]>([]);
 
   useEffect(() => {
     api
       .get(`/comics?startYear=2021`)
       .then((res) => {
-        setCharacter(res.data.data.results);
+        setYear(res.data.data.results);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -35,10 +35,10 @@ export const Home = () => {
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={150}
             slidesPerView={4}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
             breakpoints={{
               769: {
                 slidesPerView: 4,
@@ -52,11 +52,11 @@ export const Home = () => {
             onSwiper={(swiper) => console.log(swiper)}
             className="mySwipper"
           >
-            {character.map((character) => (
+            {year.map((char) => (
               <SwiperSlide>
                 <SliderYear
-                  title={character.title}
-                  thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                  title={char.title}
+                  thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
                 />
               </SwiperSlide>
             ))}
