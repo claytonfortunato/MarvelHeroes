@@ -3,13 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Character } from "../pages/Character";
 import { Comics } from "../pages/Comics";
 import { Home } from "../pages/Home";
+import { Header } from "../layout/Header";
 
 function AppRouter() {
   return (
     <BrowserRouter>
-      <Home />
+      <Header />
       <Routes>
-        <Route />
+        <Route path="/" element={<Home />} />
 
         <Route path="/characters" element={<Character />} />
         <Route path="/comics" element={<Comics />} />

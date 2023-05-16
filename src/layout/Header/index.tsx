@@ -6,7 +6,9 @@ import * as C from "./styles";
 export const Header = () => {
   return (
     <C.Container>
-      <C.ImageLogo src={Logo} />
+      <Link to="/">
+        <C.ImageLogo src={Logo} />
+      </Link>
 
       <C.Navbar>
         <Link to="/characters">

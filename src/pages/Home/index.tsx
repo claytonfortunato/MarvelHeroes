@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { Header } from "../../layout/Header";
 import { Characters } from "../../components/Characters";
 
 import api from "../../services/api";
@@ -23,8 +22,6 @@ export const Home = () => {
 
   return (
     <C.Container>
-      <Header />
-
       <C.ContentCarousel>
         <C.HeaderCarousel>Start Year 2021</C.HeaderCarousel>
 
