@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-
-import * as C from "./styles";
-import api from "../../services/api";
 import { Characters } from "../../components/Characters";
 
+import api from "../../services/api";
+import { ArrowDown } from "phosphor-react";
+
 import { PropsData } from "../../@types/types";
+
+import * as C from "./styles";
 
 export const Character = () => {
   const [characters, setCharacters] = useState<PropsData[]>([]);
@@ -26,11 +28,11 @@ export const Character = () => {
           offset,
         },
       });
-      setCharacters([...characters, ...response.data.data.resolts]);
+      setCharacters([...characters, ...response.data.data.results]);
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [characters]);
 
   return (
     <C.Container>
@@ -49,7 +51,9 @@ export const Character = () => {
         ))}
       </C.Content>
 
-      <C.Button onClick={handleShowMore}>Veja mais</C.Button>
+      <C.Button onClick={handleShowMore}>
+        <ArrowDown size={32} />
+      </C.Button>
     </C.Container>
   );
 };
