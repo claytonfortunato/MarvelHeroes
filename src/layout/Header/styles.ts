@@ -34,18 +34,19 @@ export const Navbar = styled.div`
   gap: 10px;
 
   a {
-    color: ${(props) => props.theme.colors.red};
     text-decoration: none;
     font-size: 22px;
     font-weight: 700;
-    background-color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.red};
+    color: ${(props) => props.theme.colors.white};
+
     padding: 6px;
-    border-radius: 6px;
+    border-radius: 4px;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.red};
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.red};
+      background-color: ${(props) => props.theme.colors.white};
     }
   }
 `;

@@ -4,7 +4,7 @@ import { Characters } from "../../components/Characters";
 import api from "../../services/api";
 import { ArrowDown } from "phosphor-react";
 
-import { PropsData } from "../../@types/types";
+import { PropsData } from "../../@types/interface";
 
 import * as C from "./styles";
 

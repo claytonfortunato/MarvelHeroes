@@ -8,7 +8,7 @@ import { Characters } from "../../components/Characters";
 
 import api from "../../services/api";
 
-import { PropsData } from "../../@types/types";
+import { PropsData } from "../../@types/interface";
 
 import * as C from "./styles";
 import { SliderYear } from "../../components/SliderYear";
