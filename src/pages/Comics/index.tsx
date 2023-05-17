@@ -5,6 +5,7 @@ import api from "../../services/api";
 
 import { PropsData } from "../../@types/types";
 import { Characters } from "../../components/Characters";
+import { SliderYear } from "../../components/SliderYear";
 
 export const Comics = () => {
   const [comics, setComics] = useState<PropsData[]>([]);
@@ -26,7 +27,7 @@ export const Comics = () => {
       <C.Content>
         {comics.map((type) => (
           <Characters
-            name={type.name}
+            name={type.title}
             image={`${type.thumbnail.path}.${type.thumbnail.extension}`}
           />
         ))}

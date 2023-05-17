@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import * as C from "./styles";
 import api from "../../services/api";
@@ -18,9 +18,27 @@ export const Character = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleShowMore = useCallback(async () => {
+    try {
+      const offset = characters.length;
+      const response = await api.get("characters", {
+        params: {
+          offset,
+        },
+      });
+      setCharacters([...characters, ...response.data.data.resolts]);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   return (
     <C.Container>
       <C.HeaderCharacter>Characters</C.HeaderCharacter>
+
+      <C.ContentForm>
+        <input type="text" />
+      </C.ContentForm>
 
       <C.Content>
         {characters.map((character) => (
@@ -30,6 +48,8 @@ export const Character = () => {
           />
         ))}
       </C.Content>
+
+      <C.Button onClick={handleShowMore}>Veja mais</C.Button>
     </C.Container>
   );
 };
