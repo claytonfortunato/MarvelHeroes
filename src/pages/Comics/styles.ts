@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const HeaderComics = styled.h1`
-  font-size: 22px;
-  color: #fff;
+  width: 100%;
   text-align: center;
+  font-size: 2.4rem;
+  color: ${(props) => props.theme.colors.white};
+  background-color: red;
+  margin: 10px;
+  border-radius: 12px;
 `;
 
 export const Content = styled.div`

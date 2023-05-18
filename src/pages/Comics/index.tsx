@@ -7,6 +7,7 @@ import { Characters } from "../../components/Characters";
 
 import { ArrowDown } from "phosphor-react";
 import * as C from "./styles";
+import { Input } from "../../components/Input";
 
 export const Comics = () => {
   const [comics, setComics] = useState<PropsData[]>([]);
@@ -38,6 +39,8 @@ export const Comics = () => {
   return (
     <C.Container>
       <C.HeaderComics>Comics</C.HeaderComics>
+
+      <Input type="text" placeholder="Search by comics" />
 
       <C.Content>
         {comics.map((type) => (
