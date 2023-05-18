@@ -8,7 +8,7 @@ interface CharProps {
 export const Characters = ({ name, image }: CharProps) => {
   return (
     <C.Container>
-      <img src={image} alt="" />
+      <C.ImageChar src={image} />
       <C.Header>{name}</C.Header>
     </C.Container>
   );
