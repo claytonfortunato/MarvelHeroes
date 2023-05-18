@@ -5,7 +5,7 @@ import * as C from "./styles";
 export const Comics = ({ image, title }: ComicsInterface) => {
   return (
     <C.Container>
-      <img src={image} alt="" />
+      <C.ImageComics src={image} />
       <span>{title}</span>
     </C.Container>
   );

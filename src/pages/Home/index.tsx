@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
-import { Characters } from "../../components/Characters";
-
 import api from "../../services/api";
 
 import { PropsData } from "../../@types/interface";
