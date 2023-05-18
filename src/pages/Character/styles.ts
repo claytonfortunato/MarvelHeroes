@@ -30,8 +30,8 @@ export const Content = styled.div`
 export const Button = styled.button`
   width: 80px;
 
-  background: red;
-  color: #fff;
+  background: ${(props) => props.theme.colors.red};
+  color: ${(props) => props.theme.colors.white};
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -39,7 +39,7 @@ export const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background: #fff;
-    color: red;
+    background: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.red};
   }
 `;
