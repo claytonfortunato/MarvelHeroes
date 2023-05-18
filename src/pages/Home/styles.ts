@@ -26,5 +26,22 @@ export const BoxChar = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+
+export const HeaderComics = styled.h1`
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+  background-color: red;
+  margin: 10px;
+  border-radius: 12px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  background-color: #333;
+  padding: 10px;
 `;

@@ -77,12 +77,15 @@ export const Home = () => {
       </C.ContentCarousel>
 
       <C.Content>
-        {events.map((comics) => (
-          <Comics
-            image={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-            title={comics.title}
-          />
-        ))}
+        <C.HeaderComics>Comics Events</C.HeaderComics>
+        <C.Wrapper>
+          {events.map((comics) => (
+            <Comics
+              image={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
+              title={comics.title}
+            />
+          ))}
+        </C.Wrapper>
       </C.Content>
     </C.Container>
   );

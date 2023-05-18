@@ -7,3 +7,8 @@ export interface PropsData {
     extension: string;
   };
 }
+
+export interface ComicsInterface {
+  image: string;
+  title: string;
+}
