@@ -7,6 +7,7 @@ import { ArrowDown } from "phosphor-react";
 import { PropsData } from "../../@types/interface";
 
 import * as C from "./styles";
+import { Input } from "../../components/Input";
 
 export const Character = () => {
   const [characters, setCharacters] = useState<PropsData[]>([]);
@@ -38,9 +39,7 @@ export const Character = () => {
     <C.Container>
       <C.HeaderCharacter>Characters</C.HeaderCharacter>
 
-      <C.ContentForm>
-        <input type="text" />
-      </C.ContentForm>
+      <Input type="text" placeholder="Search by character" />
 
       <C.Content>
         {characters.map((character) => (

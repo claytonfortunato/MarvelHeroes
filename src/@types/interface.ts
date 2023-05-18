@@ -12,3 +12,8 @@ export interface ComicsInterface {
   image: string;
   title: string;
 }
+
+export interface PropsInput {
+  type: string;
+  placeholder: string;
+}
