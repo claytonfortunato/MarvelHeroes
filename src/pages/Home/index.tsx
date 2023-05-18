@@ -12,6 +12,7 @@ import { PropsData } from "../../@types/interface";
 
 import * as C from "./styles";
 import { SliderYear } from "../../components/SliderYear";
+import { Comics } from "../../components/Comics";
 
 export const Home = () => {
   const [year, setYear] = useState<PropsData[]>([]);
@@ -76,14 +77,11 @@ export const Home = () => {
       </C.ContentCarousel>
 
       <C.Content>
-        {events.map((evt) => (
-          <div>
-            <img
-              src={`${evt.thumbnail.path}.${evt.thumbnail.extension}`}
-              alt=""
-            />
-            <p>{evt.name}</p>
-          </div>
+        {events.map((comics) => (
+          <Comics
+            image={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
+            title={comics.title}
+          />
         ))}
       </C.Content>
     </C.Container>
