@@ -15,12 +15,23 @@ import { SliderYear } from "../../components/SliderYear";
 
 export const Home = () => {
   const [year, setYear] = useState<PropsData[]>([]);
+  const [events, setEvents] = useState<PropsData[]>([]);
 
   useEffect(() => {
     api
       .get(`/comics?startYear=2021`)
       .then((res) => {
+        console.log(res.data.data);
         setYear(res.data.data.results);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    api
+      .get("/events")
+      .then((res) => {
+        setEvents(res.data.data.results);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -63,6 +74,18 @@ export const Home = () => {
           </Swiper>
         </C.BoxChar>
       </C.ContentCarousel>
+
+      <C.Content>
+        {events.map((evt) => (
+          <div>
+            <img
+              src={`${evt.thumbnail.path}.${evt.thumbnail.extension}`}
+              alt=""
+            />
+            <p>{evt.name}</p>
+          </div>
+        ))}
+      </C.Content>
     </C.Container>
   );
 };

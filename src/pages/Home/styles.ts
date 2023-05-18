@@ -23,3 +23,5 @@ export const BoxChar = styled.div`
   display: flex;
   margin: 14px;
 `;
+
+export const Content = styled.div``;
