@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from "react";
+
 export interface PropsData {
   id: string;
   name: string;
@@ -16,4 +18,6 @@ export interface ComicsInterface {
 export interface PropsInput {
   type: string;
   placeholder: string;
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }

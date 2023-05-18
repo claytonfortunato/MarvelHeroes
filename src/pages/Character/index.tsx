@@ -11,6 +11,7 @@ import { Input } from "../../components/Input";
 
 export const Character = () => {
   const [characters, setCharacters] = useState<PropsData[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     api
@@ -39,7 +40,12 @@ export const Character = () => {
     <C.Container>
       <C.HeaderCharacter>Characters</C.HeaderCharacter>
 
-      <Input type="text" placeholder="Search by character" />
+      <Input
+        type="text"
+        placeholder="Search by character"
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
 
       <C.Content>
         {characters.map((character) => (
