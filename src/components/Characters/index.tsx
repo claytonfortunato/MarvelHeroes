@@ -1,6 +1,9 @@
-import { CharData } from "../../@types/interface";
-
 import * as C from "./styles";
+
+interface CharData {
+  name: string;
+  image: string;
+}
 
 export const Characters = ({ name, image }: CharData) => {
   return (

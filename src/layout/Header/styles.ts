@@ -29,7 +29,7 @@ export const ImageLogo = styled.img`
   width: 200px;
 `;
 
-export const Navbar = styled.div`
+export const Navbar = styled.nav`
   display: flex;
   gap: 10px;
 

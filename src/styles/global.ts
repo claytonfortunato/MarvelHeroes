@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         color: inherit;
         &:focus {
             color: inherit;
+            
         }
     }
 

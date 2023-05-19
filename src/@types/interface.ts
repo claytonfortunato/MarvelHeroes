@@ -10,14 +10,12 @@ export interface PropsData {
   };
 }
 
-export interface ComicsData {
-  title: string;
-  thumbnail: string;
-}
-
-export interface CharData {
-  name: string;
-  image: string;
+export interface CreatorData {
+  firstName: string;
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
 }
 
 export interface PropsInput {

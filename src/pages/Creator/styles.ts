@@ -12,4 +12,8 @@ export const Header = styled.h1`
   margin: 10px 0px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;

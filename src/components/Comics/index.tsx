@@ -1,8 +1,11 @@
-import { ComicsInterface } from "../../@types/interface";
-
 import * as C from "./styles";
 
-export const Comics = ({ image, title }: ComicsInterface) => {
+interface ComicsData {
+  image: string;
+  title: string;
+}
+
+export const Comics = ({ image, title }: ComicsData) => {
   return (
     <C.Container>
       <C.ImageComics src={image} />

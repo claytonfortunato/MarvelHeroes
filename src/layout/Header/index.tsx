@@ -11,20 +11,12 @@ export const Header = () => {
       </Link>
 
       <C.Navbar>
-        <Link to="/characters">
-          <a href="">Characters</a>
-        </Link>
-        <Link to="/comics">
-          <a href="">Comics</a>
-        </Link>
+        <Link to="/characters">Characters</Link>
+        <Link to="/comics">Comics</Link>
 
-        <Link to="/creator">
-          <a href="">Creators</a>
-        </Link>
+        <Link to="/creator">Creators</Link>
 
-        <Link to="/series">
-          <a href="">Series</a>
-        </Link>
+        <Link to="/series">Series</Link>
       </C.Navbar>
     </C.Container>
   );

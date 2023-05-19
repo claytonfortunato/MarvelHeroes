@@ -1,15 +1,15 @@
 import * as C from "./styles";
 
-interface SliderData {
-  title: string;
+interface CreatorProps {
+  name: string;
   thumbnail: string;
 }
 
-export const SliderYear = ({ title, thumbnail }: SliderData) => {
+export const CardList = ({ name, thumbnail }: CreatorProps) => {
   return (
     <C.Container>
       <img src={thumbnail} alt="" />
-      <span>{title}</span>
+      <span>{name}</span>
     </C.Container>
   );
 };
