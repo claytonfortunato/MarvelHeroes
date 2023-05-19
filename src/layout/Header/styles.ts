@@ -31,16 +31,21 @@ export const ImageLogo = styled.img`
 
 export const Navbar = styled.nav`
   display: flex;
+  align-items: center;
   gap: 10px;
 
   a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     background-color: ${(props) => props.theme.colors.red};
     color: ${(props) => props.theme.colors.white};
 
     padding: 6px;
+
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
 
@@ -48,5 +53,29 @@ export const Navbar = styled.nav`
       color: ${(props) => props.theme.colors.red};
       background-color: ${(props) => props.theme.colors.white};
     }
+  }
+
+  svg {
+    margin: 0px 6px;
+  }
+`;
+
+export const Home = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  border-radius: 6px;
+  padding: 6px;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  span,
+  svg {
+    font-size: 16px;
+    color: #fff;
   }
 `;

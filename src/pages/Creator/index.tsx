@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import { CreatorData } from "../../@types/interface";
@@ -24,10 +25,12 @@ export const Creator = () => {
 
       <C.Content>
         {creators.map((creator) => (
-          <CardList
-            name={creator.firstName}
-            thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
-          />
+          <Link to={creator.urls[0].url} target="_blank">
+            <CardList
+              name={creator.firstName}
+              thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
+            />
+          </Link>
         ))}
       </C.Content>
     </C.Container>

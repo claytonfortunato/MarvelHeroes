@@ -43,7 +43,7 @@ export const Comics = () => {
 
       <C.Content>
         {comics.map((comic) => (
-          <Link to={comic.urls[0].url}>
+          <Link to={comic.urls[0].url} target="_blank">
             <Characters
               name={comic.title}
               image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}

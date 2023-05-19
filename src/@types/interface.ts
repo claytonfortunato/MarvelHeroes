@@ -3,7 +3,7 @@ import { ChangeEventHandler } from "react";
 export interface PropsData {
   name: string;
   title: string;
-  urls: string;
+  urls: any;
   thumbnail: {
     path: string;
     extension: string;
@@ -12,6 +12,7 @@ export interface PropsData {
 
 export interface CreatorData {
   firstName: string;
+  urls: any;
   thumbnail: {
     path: string;
     extension: string;
