@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-import background from "../assets/background.png";
-
 export const GlobalStyle = createGlobalStyle`
     :root {
         font-size: 62.5%;
@@ -14,9 +12,15 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:focus {
+            color: inherit;
+        }
+    }
+
     body {
         background: #222;
-        /* background-image: url(${background}); */
-        
     }
 `;

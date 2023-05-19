@@ -7,7 +7,7 @@ export const Container = styled.div`
   max-width: 100%;
 
   transition: all 0.3s ease-in;
-  cursor: pointer;
+
   margin-bottom: 12px;
 
   &:hover {

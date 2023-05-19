@@ -4,6 +4,7 @@ export interface PropsData {
   id: string;
   name: string;
   title: string;
+  urls: string;
   thumbnail: {
     path: string;
     extension: string;

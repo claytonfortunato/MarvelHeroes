@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -20,7 +21,6 @@ export const Home = () => {
     api
       .get(`/comics?startYear=2021`)
       .then((res) => {
-        console.log(res.data.data);
         setYear(res.data.data.results);
       })
       .catch((err) => console.log(err));
@@ -64,10 +64,13 @@ export const Home = () => {
           >
             {year.map((char) => (
               <SwiperSlide>
-                <SliderYear
-                  title={char.title}
-                  thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-                />
+                <Link to={char.urls[0].url}>
+                  <SliderYear
+                    key={char.name}
+                    title={char.title}
+                    thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+                  />
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -78,10 +81,12 @@ export const Home = () => {
         <C.HeaderComics>Comics Events</C.HeaderComics>
         <C.Wrapper>
           {events.map((comics) => (
-            <Comics
-              image={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-              title={comics.title}
-            />
+            <Link to={comics.urls[0].url} target="_blank">
+              <Comics
+                image={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
+                title={comics.title}
+              />
+            </Link>
           ))}
         </C.Wrapper>
       </C.Content>
