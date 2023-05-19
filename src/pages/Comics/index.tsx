@@ -1,13 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
 import { PropsData } from "../../@types/interface";
-import { Characters } from "../../components/Characters";
-
 import { ArrowDown } from "phosphor-react";
-import * as C from "./styles";
+
+import { Characters } from "../../components/Characters";
 import { Input } from "../../components/Input";
+
+import * as C from "./styles";
 
 export const Comics = () => {
   const [comics, setComics] = useState<PropsData[]>([]);
@@ -16,7 +18,6 @@ export const Comics = () => {
     api
       .get(`/comics`)
       .then((resp) => {
-        console.log(resp.data.data.results);
         setComics(resp.data.data.results);
       })
       .catch((err) => console.log(err));
@@ -40,14 +41,14 @@ export const Comics = () => {
     <C.Container>
       <C.HeaderComics>Comics</C.HeaderComics>
 
-      <Input type="text" placeholder="Search by comics" />
-
       <C.Content>
-        {comics.map((type) => (
-          <Characters
-            name={type.title}
-            image={`${type.thumbnail.path}.${type.thumbnail.extension}`}
-          />
+        {comics.map((comic) => (
+          <Link to={comic.urls[0].url}>
+            <Characters
+              name={comic.title}
+              image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+            />
+          </Link>
         ))}
       </C.Content>
 

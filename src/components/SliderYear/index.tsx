@@ -1,11 +1,8 @@
+import { ComicsData } from "../../@types/interface";
+
 import * as C from "./styles";
 
-interface CardsProps {
-  title: string;
-  thumbnail: string;
-}
-
-export const SliderYear = ({ title, thumbnail }: CardsProps) => {
+export const SliderYear = ({ title, thumbnail }: ComicsData) => {
   return (
     <C.Container>
       <img src={thumbnail} alt="" />

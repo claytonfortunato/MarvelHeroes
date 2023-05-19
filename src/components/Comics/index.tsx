@@ -6,7 +6,7 @@ export const Comics = ({ image, title }: ComicsInterface) => {
   return (
     <C.Container>
       <C.ImageComics src={image} />
-      <span>{title}</span>
+      <C.TitleComics>{title}</C.TitleComics>
     </C.Container>
   );
 };

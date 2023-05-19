@@ -1,11 +1,8 @@
+import { CharData } from "../../@types/interface";
+
 import * as C from "./styles";
 
-interface CharProps {
-  name: string;
-  image: string;
-}
-
-export const Characters = ({ name, image }: CharProps) => {
+export const Characters = ({ name, image }: CharData) => {
   return (
     <C.Container>
       <C.ImageChar src={image} />

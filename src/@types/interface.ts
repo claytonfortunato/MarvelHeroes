@@ -1,7 +1,6 @@
 import { ChangeEventHandler } from "react";
 
 export interface PropsData {
-  id: string;
   name: string;
   title: string;
   urls: string;
@@ -11,9 +10,14 @@ export interface PropsData {
   };
 }
 
-export interface ComicsInterface {
-  image: string;
+export interface ComicsData {
   title: string;
+  thumbnail: string;
+}
+
+export interface CharData {
+  name: string;
+  image: string;
 }
 
 export interface PropsInput {

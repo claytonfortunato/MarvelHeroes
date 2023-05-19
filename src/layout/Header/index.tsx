@@ -17,9 +17,14 @@ export const Header = () => {
         <Link to="/comics">
           <a href="">Comics</a>
         </Link>
-        <a href="">Creators</a>
-        <a href="">Events</a>
-        <a href="">Series</a>
+
+        <Link to="/creator">
+          <a href="">Creators</a>
+        </Link>
+
+        <Link to="/series">
+          <a href="">Series</a>
+        </Link>
       </C.Navbar>
     </C.Container>
   );

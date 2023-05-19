@@ -1,13 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
-import { Characters } from "../../components/Characters";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import { ArrowDown } from "phosphor-react";
 
 import { PropsData } from "../../@types/interface";
 
-import * as C from "./styles";
+import { Characters } from "../../components/Characters";
 import { Input } from "../../components/Input";
+
+import * as C from "./styles";
 
 export const Character = () => {
   const [characters, setCharacters] = useState<PropsData[]>([]);
@@ -49,10 +51,12 @@ export const Character = () => {
 
       <C.Content>
         {characters.map((character) => (
-          <Characters
-            name={character.name}
-            image={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-          />
+          <Link to={character.urls[0].url}>
+            <Characters
+              name={character.name}
+              image={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+            />
+          </Link>
         ))}
       </C.Content>
 
