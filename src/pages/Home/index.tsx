@@ -64,7 +64,7 @@ export const Home = () => {
           >
             {year.map((char) => (
               <SwiperSlide>
-                <Link to={char.urls[0].url}>
+                <Link to={char.urls[0].url} target="_blank">
                   <SliderYear
                     key={char.name}
                     title={char.title}
@@ -82,8 +82,8 @@ export const Home = () => {
         <C.Wrapper>
           {events.map((comics) => (
             <Link to={comics.urls[0].url} target="_blank">
-              <Comics
-                image={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
+              <SliderYear
+                thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
                 title={comics.title}
               />
             </Link>

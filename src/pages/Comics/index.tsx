@@ -6,8 +6,7 @@ import api from "../../services/api";
 import { PropsData } from "../../@types/interface";
 import { ArrowDown } from "phosphor-react";
 
-import { Characters } from "../../components/Characters";
-import { Input } from "../../components/Input";
+import { CardList } from "../../components/CardList";
 
 import * as C from "./styles";
 
@@ -44,9 +43,9 @@ export const Comics = () => {
       <C.Content>
         {comics.map((comic) => (
           <Link to={comic.urls[0].url} target="_blank">
-            <Characters
+            <CardList
               name={comic.title}
-              image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
             />
           </Link>
         ))}

@@ -15,7 +15,6 @@ export const Series = () => {
     api
       .get(`/series`)
       .then((resp) => {
-        console.log(resp.data.data.results);
         setSeries(resp.data.data.results);
       })
       .catch((err) => console.log(err));
