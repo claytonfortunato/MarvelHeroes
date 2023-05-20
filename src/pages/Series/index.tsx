@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import { PropsData } from "../../@types/interface";
+import { ArrowDown } from "phosphor-react";
 
 import * as C from "./styles";
 import { CardList } from "../../components/CardList";
@@ -20,6 +21,20 @@ export const Series = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleShowMore = useCallback(async () => {
+    try {
+      const offset = series.length;
+      const response = await api.get("comics", {
+        params: {
+          offset,
+        },
+      });
+      setSeries([...series, ...response.data.data.results]);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [series]);
+
   return (
     <C.Container>
       <C.Header>Series</C.Header>
@@ -33,6 +48,10 @@ export const Series = () => {
           </Link>
         ))}
       </C.Content>
+
+      <C.Button onClick={handleShowMore}>
+        <ArrowDown size={32} />
+      </C.Button>
     </C.Container>
   );
 };

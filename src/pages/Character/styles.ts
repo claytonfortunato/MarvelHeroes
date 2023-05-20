@@ -40,6 +40,7 @@ export const Button = styled.button`
   border-radius: 6px;
   margin: 1% 45%;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     background: ${(props) => props.theme.colors.white};

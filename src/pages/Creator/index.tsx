@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import { CreatorData } from "../../@types/interface";
+import { ArrowDown } from "phosphor-react";
 
-import * as C from "./styles";
 import { CardList } from "../../components/CardList";
+import * as C from "./styles";
 
 export const Creator = () => {
   const [creators, setCreators] = useState<CreatorData[]>([]);
@@ -18,6 +19,20 @@ export const Creator = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleShowMore = useCallback(async () => {
+    try {
+      const offset = creators.length;
+      const response = await api.get("comics", {
+        params: {
+          offset,
+        },
+      });
+      setCreators([...creators, ...response.data.data.results]);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [creators]);
 
   return (
     <C.Container>
@@ -33,6 +48,10 @@ export const Creator = () => {
           </Link>
         ))}
       </C.Content>
+
+      <C.Button onClick={handleShowMore}>
+        <ArrowDown size={32} />
+      </C.Button>
     </C.Container>
   );
 };

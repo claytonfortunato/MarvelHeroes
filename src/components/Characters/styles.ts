@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const ImageChar = styled.img`
   width: 300px;
-  height: 300px;
+  height: 400px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 `;
