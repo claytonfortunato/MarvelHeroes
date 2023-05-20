@@ -6,12 +6,11 @@ import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
 import api from "../../services/api";
-
 import { PropsData } from "../../@types/interface";
 
+import { CardList } from "../../components/CardList";
+
 import * as C from "./styles";
-import { SliderYear } from "../../components/SliderYear";
-import { Comics } from "../../components/Comics";
 
 export const Home = () => {
   const [year, setYear] = useState<PropsData[]>([]);
@@ -65,9 +64,9 @@ export const Home = () => {
             {year.map((char) => (
               <SwiperSlide>
                 <Link to={char.urls[0].url} target="_blank">
-                  <SliderYear
+                  <CardList
                     key={char.name}
-                    title={char.title}
+                    name={char.title}
                     thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
                   />
                 </Link>
@@ -82,9 +81,9 @@ export const Home = () => {
         <C.Wrapper>
           {events.map((comics) => (
             <Link to={comics.urls[0].url} target="_blank">
-              <SliderYear
+              <CardList
                 thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                title={comics.title}
+                name={comics.title}
               />
             </Link>
           ))}

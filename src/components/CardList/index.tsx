@@ -8,8 +8,16 @@ interface CreatorProps {
 export const CardList = ({ name, thumbnail }: CreatorProps) => {
   return (
     <C.Container>
-      <img src={thumbnail} alt="" />
-      <span>{name}</span>
+      <C.Effect>
+        <C.EffectImage>
+          <C.Image src={thumbnail} />
+        </C.EffectImage>
+        <C.EffectText>
+          <C.Inner>
+            <span>{name}</span>
+          </C.Inner>
+        </C.EffectText>
+      </C.Effect>
     </C.Container>
   );
 };

@@ -6,6 +6,7 @@ import { CreatorData } from "../../@types/interface";
 import { ArrowDown } from "phosphor-react";
 
 import { CardList } from "../../components/CardList";
+
 import * as C from "./styles";
 
 export const Creator = () => {
