@@ -62,10 +62,10 @@ export const Home = () => {
             className="mySwipper"
           >
             {year.map((char) => (
-              <SwiperSlide>
-                <Link to={char.urls[0].url} target="_blank">
+              <SwiperSlide key={char.id}>
+                <Link to={char.urls[0].url} target="_blank" key={char.id}>
                   <CardList
-                    key={char.name}
+                    key={char.id}
                     name={char.title}
                     thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
                   />
@@ -80,8 +80,9 @@ export const Home = () => {
         <C.HeaderComics>Comics Events</C.HeaderComics>
         <C.Wrapper>
           {events.map((comics) => (
-            <Link to={comics.urls[0].url} target="_blank">
+            <Link to={comics.urls[0].url} target="_blank" key={comics.id}>
               <CardList
+                key={comics.id}
                 thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
                 name={comics.title}
               />

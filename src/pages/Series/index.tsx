@@ -39,8 +39,9 @@ export const Series = () => {
       <C.Header>Series</C.Header>
       <C.Content>
         {series.map((serie) => (
-          <Link to={serie.urls[0].url} target="_blank">
+          <Link to={serie.urls[0].url} target="_blank" key={serie.id}>
             <CardList
+              key={serie.id}
               name={serie.title}
               thumbnail={`${serie.thumbnail.path}.${serie.thumbnail.extension}`}
             />

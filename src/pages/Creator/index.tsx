@@ -41,8 +41,9 @@ export const Creator = () => {
 
       <C.Content>
         {creators.map((creator) => (
-          <Link to={creator.urls[0].url} target="_blank">
+          <Link to={creator.urls[0].url} target="_blank" key={creator.id}>
             <CardList
+              key={creator.id}
               name={creator.firstName}
               thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
             />

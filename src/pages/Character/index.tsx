@@ -51,8 +51,9 @@ export const Character = () => {
 
       <C.Content>
         {characters.map((character) => (
-          <Link to={character.urls[0].url}>
+          <Link to={character.urls[0].url} key={character.id}>
             <CardList
+              key={character.id}
               name={character.name}
               thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
             />

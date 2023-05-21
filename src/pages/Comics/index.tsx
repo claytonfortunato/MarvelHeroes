@@ -42,8 +42,9 @@ export const Comics = () => {
 
       <C.Content>
         {comics.map((comic) => (
-          <Link to={comic.urls[0].url} target="_blank">
+          <Link to={comic.urls[0].url} target="_blank" key={comic.id}>
             <CardList
+              key={comic.id}
               name={comic.title}
               thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
             />

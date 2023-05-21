@@ -1,6 +1,7 @@
 import { ChangeEventHandler } from "react";
 
 export interface PropsData {
+  id: number;
   name: string;
   title: string;
   urls: any;
@@ -11,6 +12,7 @@ export interface PropsData {
 }
 
 export interface CreatorData {
+  id: number;
   firstName: string;
   urls: any;
   thumbnail: {
