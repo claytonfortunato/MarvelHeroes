@@ -21,7 +21,7 @@ export const HeaderCarousel = styled.h1`
 
 export const BoxChar = styled.div`
   display: flex;
-  margin: 14px;
+  padding: 0px 30px;
 `;
 
 export const Content = styled.div`
@@ -42,6 +42,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #333;
+  background-color: ${(props) => props.theme.colors.black};
   padding: 10px;
 `;

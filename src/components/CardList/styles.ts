@@ -44,7 +44,8 @@ export const Container = styled.div`
 
   transition: all 0.5s ease-in;
 
-  margin: 10px;
+  margin: 20px;
+  padding: 20px;
   position: relative;
 `;
 
