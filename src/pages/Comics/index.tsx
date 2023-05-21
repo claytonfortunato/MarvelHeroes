@@ -7,6 +7,7 @@ import { PropsData } from "../../@types/interface";
 import { ArrowDown } from "phosphor-react";
 
 import { CardList } from "../../components/CardList";
+import { Loading } from "../../components/Loading";
 
 import * as C from "./styles";
 
@@ -41,15 +42,19 @@ export const Comics = () => {
       <C.HeaderComics>Comics</C.HeaderComics>
 
       <C.Content>
-        {comics.map((comic) => (
-          <Link to={comic.urls[0].url} target="_blank" key={comic.id}>
-            <CardList
-              key={comic.id}
-              name={comic.title}
-              thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-            />
-          </Link>
-        ))}
+        {comics.length === 0 ? (
+          <Loading />
+        ) : (
+          comics.map((comic) => (
+            <Link to={comic.urls[0].url} target="_blank" key={comic.id}>
+              <CardList
+                key={comic.id}
+                name={comic.title}
+                thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              />
+            </Link>
+          ))
+        )}
       </C.Content>
 
       <C.Button onClick={handleShowMore}>

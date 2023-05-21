@@ -5,8 +5,10 @@ import api from "../../services/api";
 import { PropsData } from "../../@types/interface";
 import { ArrowDown } from "phosphor-react";
 
-import * as C from "./styles";
 import { CardList } from "../../components/CardList";
+import { Loading } from "../../components/Loading";
+
+import * as C from "./styles";
 
 export const Series = () => {
   const [series, setSeries] = useState<PropsData[]>([]);
@@ -38,15 +40,19 @@ export const Series = () => {
     <C.Container>
       <C.Header>Series</C.Header>
       <C.Content>
-        {series.map((serie) => (
-          <Link to={serie.urls[0].url} target="_blank" key={serie.id}>
-            <CardList
-              key={serie.id}
-              name={serie.title}
-              thumbnail={`${serie.thumbnail.path}.${serie.thumbnail.extension}`}
-            />
-          </Link>
-        ))}
+        {series.length === 0 ? (
+          <Loading />
+        ) : (
+          series.map((serie) => (
+            <Link to={serie.urls[0].url} target="_blank" key={serie.id}>
+              <CardList
+                key={serie.id}
+                name={serie.title}
+                thumbnail={`${serie.thumbnail.path}.${serie.thumbnail.extension}`}
+              />
+            </Link>
+          ))
+        )}
       </C.Content>
 
       <C.Button onClick={handleShowMore}>

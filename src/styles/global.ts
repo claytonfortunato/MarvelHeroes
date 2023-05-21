@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         font-size: 62.5%;
+        width: 100%;
+        height: 100%;
     }
 
     * {
@@ -23,5 +25,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background: #222;
+        
     }
 `;

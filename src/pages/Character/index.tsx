@@ -7,9 +7,10 @@ import { ArrowDown } from "phosphor-react";
 import { PropsData } from "../../@types/interface";
 
 import { Input } from "../../components/Input";
+import { CardList } from "../../components/CardList";
+import { Loading } from "../../components/Loading";
 
 import * as C from "./styles";
-import { CardList } from "../../components/CardList";
 
 export const Character = () => {
   const [characters, setCharacters] = useState<PropsData[]>([]);
@@ -22,6 +23,10 @@ export const Character = () => {
         setCharacters(resp.data.data.results);
       })
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    api.get(`/characters?nameStartsWith=${search}`);
   }, []);
 
   const handleShowMore = useCallback(async () => {
@@ -50,15 +55,19 @@ export const Character = () => {
       />
 
       <C.Content>
-        {characters.map((character) => (
-          <Link to={character.urls[0].url} key={character.id}>
-            <CardList
-              key={character.id}
-              name={character.name}
-              thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-            />
-          </Link>
-        ))}
+        {characters.length === 0 ? (
+          <Loading />
+        ) : (
+          characters.map((character) => (
+            <Link to={character.urls[0].url} key={character.id}>
+              <CardList
+                key={character.id}
+                name={character.name}
+                thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+              />
+            </Link>
+          ))
+        )}
       </C.Content>
 
       <C.Button onClick={handleShowMore}>

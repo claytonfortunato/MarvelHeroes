@@ -8,6 +8,7 @@ import { ArrowDown } from "phosphor-react";
 import { CardList } from "../../components/CardList";
 
 import * as C from "./styles";
+import { Loading } from "../../components/Loading";
 
 export const Creator = () => {
   const [creators, setCreators] = useState<CreatorData[]>([]);
@@ -40,15 +41,19 @@ export const Creator = () => {
       <C.Header>Creators</C.Header>
 
       <C.Content>
-        {creators.map((creator) => (
-          <Link to={creator.urls[0].url} target="_blank" key={creator.id}>
-            <CardList
-              key={creator.id}
-              name={creator.firstName}
-              thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
-            />
-          </Link>
-        ))}
+        {creators.length === 0 ? (
+          <Loading />
+        ) : (
+          creators.map((creator) => (
+            <Link to={creator.urls[0].url} target="_blank" key={creator.id}>
+              <CardList
+                key={creator.id}
+                name={creator.firstName}
+                thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
+              />
+            </Link>
+          ))
+        )}
       </C.Content>
 
       <C.Button onClick={handleShowMore}>

@@ -37,7 +37,6 @@ export const ImageContent = styled.div`
 `;
 
 export const Background = styled.div`
-  z-index: 1;
   background-color: black;
   opacity: 0.8;
   width: 100vw;

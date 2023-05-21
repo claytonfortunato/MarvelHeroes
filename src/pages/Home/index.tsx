@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 
 import api from "../../services/api";
 import { PropsData } from "../../@types/interface";
 
 import { CardList } from "../../components/CardList";
+import { Loading } from "../../components/Loading";
 
 import * as C from "./styles";
 
@@ -79,15 +80,19 @@ export const Home = () => {
       <C.Content>
         <C.HeaderComics>Comics Events</C.HeaderComics>
         <C.Wrapper>
-          {events.map((comics) => (
-            <Link to={comics.urls[0].url} target="_blank" key={comics.id}>
-              <CardList
-                key={comics.id}
-                thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                name={comics.title}
-              />
-            </Link>
-          ))}
+          {events.length === 0 ? (
+            <Loading />
+          ) : (
+            events.map((comics) => (
+              <Link to={comics.urls[0].url} target="_blank" key={comics.id}>
+                <CardList
+                  key={comics.id}
+                  thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
+                  name={comics.title}
+                />
+              </Link>
+            ))
+          )}
         </C.Wrapper>
       </C.Content>
     </C.Container>
