@@ -1,5 +1,3 @@
-import { ChangeEventHandler } from "react";
-
 export interface PropsData {
   id: number;
   name: string;
@@ -22,8 +20,7 @@ export interface CreatorData {
 }
 
 export interface PropsInput {
-  type: string;
-  placeholder: string;
-  value: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  error: string;
+  placeholder?: string;
+  onSubmit?: (inputValue: string) => void;
 }

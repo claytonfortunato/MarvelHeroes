@@ -13,66 +13,50 @@ import { Loading } from "../../components/Loading";
 import * as C from "./styles";
 
 export const Character = () => {
-  const [characters, setCharacters] = useState<PropsData[]>([]);
+  const [heroes, setHeroes] = useState<PropsData[]>([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    api
-      .get(`/characters`)
-      .then((resp) => {
-        setCharacters(resp.data.data.results);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    api.get(`/characters?nameStartsWith=${search}`);
-  }, []);
-
-  const handleShowMore = useCallback(async () => {
-    try {
-      const offset = characters.length;
-      const response = await api.get("characters", {
+    async function SearchHero() {
+      const response = await api.get("/characters", {
         params: {
-          offset,
+          limit: 15,
+          offset: 0,
+          nameStartsWith: search,
         },
       });
-      setCharacters([...characters, ...response.data.data.results]);
-    } catch (err) {
-      console.log(err);
+      setHeroes(response.data.data.results);
     }
-  }, [characters]);
+    SearchHero();
+  }, [search]);
 
   return (
     <C.Container>
       <C.HeaderCharacter>Characters</C.HeaderCharacter>
 
-      <Input
-        type="text"
-        placeholder="Search by character"
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
+      <div>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
 
       <C.Content>
-        {characters.length === 0 ? (
-          <Loading />
-        ) : (
-          characters.map((character) => (
-            <Link to={character.urls[0].url} key={character.id}>
-              <CardList
-                key={character.id}
-                name={character.name}
-                thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-              />
-            </Link>
-          ))
-        )}
+        {heroes.map((char) => (
+          <Link to={char.urls[0].url} key={char.id}>
+            <CardList
+              key={char.id}
+              name={char.name}
+              thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+            />
+          </Link>
+        ))}
       </C.Content>
 
-      <C.Button onClick={handleShowMore}>
+      {/* <C.Button onClick={handleShowMore}>
         <ArrowDown size={32} />
-      </C.Button>
+      </C.Button> */}
     </C.Container>
   );
 };

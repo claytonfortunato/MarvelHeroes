@@ -1,39 +1,10 @@
-import styled, { keyframes } from "styled-components";
-
-const rotateUp = keyframes`
-   0% {
-    left: 100%;
-    height: 0;
-  }
-  50% {
-    left: 0;
-    height: 0;
-  }
-  100% {
-    height: 100%;
-    left: 0;
-  }
-`;
-
-const rotateRight = keyframes`
-  0% {
-    left: -100%;
-    height: 0;
-  }
-  50% {
-    left: 0;
-    height: 0;
-  }
-  100% {
-    height: 100%;
-    left: 0;
-  }
-`;
+import styled from "styled-components";
 
 export const Image = styled.img`
   width: 240px;
   height: 360px;
   border-radius: 6px;
+  transition: all 0.5s ease-in;
 `;
 
 export const Container = styled.div`
@@ -47,6 +18,10 @@ export const Container = styled.div`
   margin: 20px;
   padding: 20px;
   position: relative;
+
+  &:hover {
+    transform: scale(1.04);
+  }
 `;
 
 export const Effect = styled.div`
@@ -74,6 +49,7 @@ export const EffectText = styled.div`
   transition: all 0.4s ease-in;
   background: rgba(0, 0, 0, 0.5);
   border: 3px solid #fff;
+  border-radius: 6px;
 
   &::before,
   ::after {
@@ -87,42 +63,6 @@ export const EffectText = styled.div`
   &:hover {
     opacity: 1;
   }
-
-  /* &::before {
-    border-top: 3px solid #fff;
-    border-right: 3px solid #fff;
-
-    left: -100%;
-    top: 0;
-  }
-
-  &::after {
-    border-bottom: 3px solid #fff;
-    border-left: 3px solid #fff;
-
-    left: 100%;
-    top: 0;
-  } */
-
-  /* &::before,
-  ::after,
-  &:hover {
-    animation-delay: 0.1s;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
-  &:hover,
-  &::after {
-    animation-name: ${rotateUp};
-  }
-
-  &:hover,
-  &::before {
-    animation-name: ${rotateRight};
-  } */
 `;
 
 export const Inner = styled.div`
@@ -133,5 +73,9 @@ export const Inner = styled.div`
   span {
     color: #fff;
     font-size: 18px;
+  }
+
+  ${EffectImage} {
+    transform: scale(1.2);
   }
 `;

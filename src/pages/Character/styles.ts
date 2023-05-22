@@ -12,7 +12,7 @@ export const HeaderCharacter = styled.h1`
   text-align: center;
   font-size: 2.4rem;
   color: ${(props) => props.theme.colors.white};
-  background-color: red;
+  background-color: ${(props) => props.theme.colors.red};
   margin: 10px;
   border-radius: 12px;
 `;

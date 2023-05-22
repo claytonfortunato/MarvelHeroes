@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { X } from "phosphor-react";
@@ -10,6 +11,10 @@ interface MenuProps {
 }
 
 export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
+  useEffect(() => {
+    document.body.style.overflowY = menuIsVisible ? "hidden" : "auto";
+  }, [menuIsVisible]);
+
   return (
     <C.Container menuOpen={menuIsVisible}>
       <X size={45} onClick={() => setMenuIsVisible(false)} />

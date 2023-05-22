@@ -40,3 +40,5 @@ export const ButtonInput = styled.button`
     }
   }
 `;
+
+export const Error = styled.div``;
