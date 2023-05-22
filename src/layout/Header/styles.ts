@@ -23,6 +23,17 @@ export const Container = styled.div`
     width: 100%;
     height: 100px;
   }
+
+  > section {
+    background-color: ${(props) => props.theme.colors.red};
+    border-radius: 6px;
+    .mobile {
+      display: none;
+      @media (max-width: 840px) {
+        display: initial;
+      }
+    }
+  }
 `;
 
 export const ImageLogo = styled.img`
@@ -58,6 +69,10 @@ export const Navbar = styled.nav`
   svg {
     margin: 0px 6px;
   }
+
+  @media (max-width: 840px) {
+    display: none;
+  }
 `;
 
 export const Home = styled.div`
@@ -77,5 +92,9 @@ export const Home = styled.div`
   svg {
     font-size: 16px;
     color: #fff;
+  }
+
+  @media (max-width: 840px) {
+    display: none;
   }
 `;

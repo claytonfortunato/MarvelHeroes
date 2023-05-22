@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Header } from "../layout/Header";
@@ -7,11 +8,18 @@ import { Comics } from "../pages/Comics";
 import { Creator } from "../pages/Creator";
 import { Series } from "../pages/Series";
 import { Footer } from "../layout/Footer";
+import { MenuMobile } from "../components/MenuMobile";
 
 function AppRouter() {
+  const [menuIsVisible, setMenuIsVisible] = useState(false);
+
   return (
     <BrowserRouter>
-      <Header />
+      <MenuMobile
+        menuIsVisible={menuIsVisible}
+        setMenuIsVisible={setMenuIsVisible}
+      />
+      <Header setMenuIsVisible={setMenuIsVisible} />
       <Routes>
         <Route path="/" element={<Home />} />
 
