@@ -8,7 +8,7 @@ export const Container = styled.div`
   transition: all 0.3s;
   width: 100%;
   height: 100px;
-  border: 2px solid #ddd;
+  border: 3px solid ${(props) => props.theme.colors.black02};
 
   &::before {
     content: "";

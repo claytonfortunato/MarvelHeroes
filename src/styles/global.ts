@@ -5,7 +5,21 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
         width: 100%;
         height: 100%;
-    }
+
+        ::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f21628;
+  border-radius: 10px;
+}
+}
 
     * {
         margin: 0;

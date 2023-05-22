@@ -7,7 +7,7 @@ export const Container = styled.div`
 export const ContentCarousel = styled.div`
   width: 100%;
   padding: 10px;
-  background-color: #333;
+  background-color: ${(props) => props.theme.colors.black};
 `;
 
 export const HeaderCarousel = styled.h1`
@@ -32,8 +32,8 @@ export const Content = styled.div`
 export const HeaderComics = styled.h1`
   font-size: 24px;
   text-align: center;
-  color: #fff;
-  background-color: red;
+  color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.red};
   margin: 10px;
   border-radius: 12px;
 `;

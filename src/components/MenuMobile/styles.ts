@@ -19,8 +19,6 @@ export const Container = styled.div<Props>`
   align-items: center;
   color: #fff;
 
-  background-color: rgba(255, 255, 255, 0.75);
-
   background: linear-gradient(
     45deg,
     rgba(6, 10, 10, 1) 0%,
@@ -58,5 +56,5 @@ export const Navbar = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  font-size: 16px;
+  font-size: 18px;
 `;

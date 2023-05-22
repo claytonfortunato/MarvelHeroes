@@ -6,7 +6,7 @@ import * as C from "./styles";
 
 interface MenuProps {
   menuIsVisible: boolean;
-  setMenuIsVisible: boolean;
+  setMenuIsVisible: () => void;
 }
 
 export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
@@ -14,7 +14,7 @@ export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
     <C.Container menuOpen={menuIsVisible}>
       <X size={45} onClick={() => setMenuIsVisible(false)} />
 
-      <C.Navbar>
+      <C.Navbar onClick={() => setMenuIsVisible(false)}>
         <Link to="/">Home</Link>
         <Link to="/characters">Characters</Link>
         <Link to="/comics">Comics</Link>
