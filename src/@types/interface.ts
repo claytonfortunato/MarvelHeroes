@@ -19,8 +19,8 @@ export interface CreatorData {
   };
 }
 
-export interface PropsInput {
-  error: string;
+export type SearchProps = {
   placeholder?: string;
-  onSubmit?: (inputValue: string) => void;
-}
+  value?: string;
+  search: (e: any) => void;
+};

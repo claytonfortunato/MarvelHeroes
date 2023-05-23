@@ -1,44 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.form`
-  max-width: 600px;
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 6px;
-  border-radius: 8px;
-  outline: none;
-  border: none;
-`;
-
-export const ButtonInput = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10%;
-  border-radius: 8px;
-  outline: none;
-  border: none;
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  width: 400px;
+  padding: 8px 0 5px 0;
+  color: ${(props) => props.theme.colors.white};
   margin-left: 10px;
-  cursor: pointer;
-  background-color: ${(props) => props.theme.colors.red};
-  transition: all 0.3s ease;
+  font-size: 16px;
 
-  &:hover {
-    background-color: #fff;
-  }
-
-  svg {
-    width: 100%;
-    color: #fff;
-
-    &:hover {
-      color: red;
-    }
+  &:focus-within {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid ${(props) => props.theme.colors.red};
   }
 `;
-
-export const Error = styled.div``;
