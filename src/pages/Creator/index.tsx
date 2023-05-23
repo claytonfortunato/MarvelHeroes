@@ -1,15 +1,14 @@
 import { useEffect, useState, useCallback } from "react";
-import { Link } from "react-router-dom";
 
 import api from "../../services/api";
-import { CreatorData } from "../../@types/interface";
 import { ArrowDown } from "phosphor-react";
+import { CreatorData } from "../../@types/interface";
 
 import { CardList } from "../../components/CardList";
-
-import * as C from "./styles";
 import { Loading } from "../../components/Loading";
 import { Input } from "../../components/Input";
+
+import * as C from "./styles";
 
 export const Creator = () => {
   const [creators, setCreators] = useState<CreatorData[]>([]);
@@ -67,13 +66,12 @@ export const Creator = () => {
           <Loading />
         ) : (
           creators.map((creator) => (
-            <Link to={creator.urls[0].url} target="_blank" key={creator.id}>
-              <CardList
-                key={creator.id}
-                name={creator.firstName}
-                thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
-              />
-            </Link>
+            <CardList
+              key={creator.id}
+              name={creator.firstName}
+              thumbnail={`${creator.thumbnail.path}.${creator.thumbnail.extension}`}
+              details={creator.urls[0].url}
+            />
           ))
         )}
       </C.Content>

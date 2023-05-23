@@ -11,13 +11,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-
   transition: all 0.5s ease-in;
 
   margin: 20px;
   padding: 20px;
   position: relative;
+  pointer-events: auto;
 
   &:hover {
     transform: scale(1.04);

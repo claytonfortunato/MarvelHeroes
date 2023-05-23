@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import { ArrowDown } from "phosphor-react";
@@ -68,13 +67,12 @@ export const Character = () => {
           <Loading />
         ) : (
           characters.map((char) => (
-            <Link to={char.urls[0].url} key={char.id}>
-              <CardList
-                key={char.id}
-                name={char.name}
-                thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-              />
-            </Link>
+            <CardList
+              key={char.id}
+              name={char.name}
+              thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+              details={char.urls[0].url}
+            />
           ))
         )}
       </C.Content>

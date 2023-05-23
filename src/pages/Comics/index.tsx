@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
@@ -68,13 +67,12 @@ export const Comics = () => {
           <Loading />
         ) : (
           comics.map((comic) => (
-            <Link to={comic.urls[0].url} target="_blank" key={comic.id}>
-              <CardList
-                key={comic.id}
-                name={comic.title}
-                thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-              />
-            </Link>
+            <CardList
+              key={comic.id}
+              name={comic.title}
+              thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              details={comic.urls[0].url}
+            />
           ))
         )}
       </C.Content>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import { PropsData } from "../../@types/interface";
@@ -7,9 +6,9 @@ import { ArrowDown } from "phosphor-react";
 
 import { CardList } from "../../components/CardList";
 import { Loading } from "../../components/Loading";
+import { Input } from "../../components/Input";
 
 import * as C from "./styles";
-import { Input } from "../../components/Input";
 
 export const Series = () => {
   const [series, setSeries] = useState<PropsData[]>([]);
@@ -67,13 +66,12 @@ export const Series = () => {
           <Loading />
         ) : (
           series.map((serie) => (
-            <Link to={serie.urls[0].url} target="_blank" key={serie.id}>
-              <CardList
-                key={serie.id}
-                name={serie.title}
-                thumbnail={`${serie.thumbnail.path}.${serie.thumbnail.extension}`}
-              />
-            </Link>
+            <CardList
+              key={serie.id}
+              name={serie.title}
+              thumbnail={`${serie.thumbnail.path}.${serie.thumbnail.extension}`}
+              details={serie.urls[0].url}
+            />
           ))
         )}
       </C.Content>

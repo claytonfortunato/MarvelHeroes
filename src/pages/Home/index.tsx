@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -80,13 +79,12 @@ export const Home = () => {
           >
             {year.map((char) => (
               <SwiperSlide key={char.id}>
-                <Link to={char.urls[0].url} target="_blank" key={char.id}>
-                  <CardList
-                    key={char.id}
-                    name={char.title}
-                    thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-                  />
-                </Link>
+                <CardList
+                  key={char.id}
+                  name={char.title}
+                  thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+                  details={char.urls[0].url}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -96,24 +94,22 @@ export const Home = () => {
       <C.Content>
         <C.HeaderComics>Comics Events</C.HeaderComics>
 
+        <Input
+          placeholder="Search by Comics Events"
+          value={search}
+          search={(e) => setSearch(e.target.value)}
+        />
         <C.Wrapper>
-          <Input
-            placeholder="Search by Comics Events"
-            value={search}
-            search={(e) => setSearch(e.target.value)}
-          />
-
           {events.length === 0 ? (
             <Loading />
           ) : (
             events.map((comics) => (
-              <Link to={comics.urls[0].url} target="_blank" key={comics.id}>
-                <CardList
-                  key={comics.id}
-                  thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                  name={comics.title}
-                />
-              </Link>
+              <CardList
+                key={comics.id}
+                thumbnail={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
+                name={comics.title}
+                details={comics.urls[0].url}
+              />
             ))
           )}
         </C.Wrapper>
