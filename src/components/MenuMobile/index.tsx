@@ -7,7 +7,7 @@ import * as C from "./styles";
 
 interface MenuProps {
   menuIsVisible: boolean;
-  setMenuIsVisible: () => void;
+  setMenuIsVisible: any;
 }
 
 export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {

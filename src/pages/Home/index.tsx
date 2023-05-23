@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { Navigation, Pagination, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 import api from "../../services/api";
 import { PropsData } from "../../@types/interface";
@@ -17,6 +17,42 @@ export const Home = () => {
   const [year, setYear] = useState<PropsData[]>([]);
   const [events, setEvents] = useState<PropsData[]>([]);
   const [search, setSearch] = useState("");
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     api
@@ -56,38 +92,16 @@ export const Home = () => {
         <C.HeaderCarousel>Start Year 2021</C.HeaderCarousel>
 
         <C.BoxChar>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={150}
-            slidesPerView={4}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            breakpoints={{
-              769: {
-                slidesPerView: 4,
-                slidesPerGroup: 4,
-              },
-            }}
-            loop={true}
-            navigation={true}
-            pagination={{ clickable: true }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-            className="mySwipper"
-          >
+          <Slider {...settings}>
             {year.map((char) => (
-              <SwiperSlide key={char.id}>
-                <CardList
-                  key={char.id}
-                  name={char.title}
-                  thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-                  details={char.urls[0].url}
-                />
-              </SwiperSlide>
+              <CardList
+                key={char.id}
+                name={char.title}
+                thumbnail={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+                details={char.urls[0].url}
+              />
             ))}
-          </Swiper>
+          </Slider>
         </C.BoxChar>
       </C.ContentCarousel>
 

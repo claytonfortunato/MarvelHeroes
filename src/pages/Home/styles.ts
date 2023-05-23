@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  height: 100%;
 `;
 
 export const ContentCarousel = styled.div`
   width: 100%;
   padding: 10px;
+
   background-color: ${(props) => props.theme.colors.black};
 `;
 
@@ -22,6 +24,20 @@ export const HeaderCarousel = styled.h1`
 export const BoxChar = styled.div`
   display: flex;
   padding: 0px 30px;
+
+  .slick-slider {
+    width: 100%;
+  }
+
+  .slick-dots {
+    li {
+      button {
+        &:before {
+          color: ${(props) => props.theme.colors.red};
+        }
+      }
+    }
+  }
 `;
 
 export const Content = styled.div`
