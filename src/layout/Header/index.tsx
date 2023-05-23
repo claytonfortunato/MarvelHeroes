@@ -10,7 +10,11 @@ import { List } from "phosphor-react";
 
 import * as C from "./styles";
 
-export const Header = ({ setMenuIsVisible }) => {
+interface Props {
+  setMenuIsVisible: any;
+}
+
+export const Header = ({ setMenuIsVisible }: Props) => {
   return (
     <C.Container>
       <C.ImageLogo src={Logo} />

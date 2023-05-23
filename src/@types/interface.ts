@@ -24,3 +24,8 @@ export type SearchProps = {
   value?: string;
   search: (e: any) => void;
 };
+
+export interface MenuProps {
+  menuIsVisible: boolean;
+  setMenuIsVisible: any;
+}

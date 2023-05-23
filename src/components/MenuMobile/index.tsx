@@ -2,13 +2,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { X } from "phosphor-react";
+import { MenuProps } from "../../@types/interface";
 
 import * as C from "./styles";
-
-interface MenuProps {
-  menuIsVisible: boolean;
-  setMenuIsVisible: any;
-}
 
 export const MenuMobile = ({ menuIsVisible, setMenuIsVisible }: MenuProps) => {
   useEffect(() => {
