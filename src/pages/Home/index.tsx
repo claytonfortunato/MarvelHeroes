@@ -10,12 +10,14 @@ import { PropsData } from "../../@types/interface";
 
 import { CardList } from "../../components/CardList";
 import { Loading } from "../../components/Loading";
+import { Input } from "../../components/Input";
 
 import * as C from "./styles";
 
 export const Home = () => {
   const [year, setYear] = useState<PropsData[]>([]);
   const [events, setEvents] = useState<PropsData[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     api
@@ -35,6 +37,20 @@ export const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    async function SearchHero() {
+      const response = await api.get("events", {
+        params: {
+          limit: 15,
+          offset: 0,
+          nameStartsWith: search,
+        },
+      });
+      setEvents(response.data.data.results);
+    }
+    SearchHero();
+  }, [search]);
+
   return (
     <C.Container>
       <C.ContentCarousel>
@@ -45,10 +61,10 @@ export const Home = () => {
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={150}
             slidesPerView={4}
-            // autoplay={{
-            //   delay: 2500,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             breakpoints={{
               769: {
                 slidesPerView: 4,
@@ -79,7 +95,14 @@ export const Home = () => {
 
       <C.Content>
         <C.HeaderComics>Comics Events</C.HeaderComics>
+
         <C.Wrapper>
+          <Input
+            placeholder="Search by Comics Events"
+            value={search}
+            search={(e) => setSearch(e.target.value)}
+          />
+
           {events.length === 0 ? (
             <Loading />
           ) : (

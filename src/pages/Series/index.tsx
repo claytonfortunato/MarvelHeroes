@@ -57,7 +57,7 @@ export const Series = () => {
       <C.Header>Series</C.Header>
 
       <Input
-        placeholder="Search by series"
+        placeholder="Search by Series"
         value={search}
         search={(e) => setSearch(e.target.value)}
       />
