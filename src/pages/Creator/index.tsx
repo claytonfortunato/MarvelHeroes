@@ -9,9 +9,11 @@ import { CardList } from "../../components/CardList";
 
 import * as C from "./styles";
 import { Loading } from "../../components/Loading";
+import { Input } from "../../components/Input";
 
 export const Creator = () => {
   const [creators, setCreators] = useState<CreatorData[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     api
@@ -25,7 +27,7 @@ export const Creator = () => {
   const handleShowMore = useCallback(async () => {
     try {
       const offset = creators.length;
-      const response = await api.get("comics", {
+      const response = await api.get("creators", {
         params: {
           offset,
         },
@@ -36,9 +38,29 @@ export const Creator = () => {
     }
   }, [creators]);
 
+  useEffect(() => {
+    async function SearchHero() {
+      const response = await api.get("/creators", {
+        params: {
+          limit: 15,
+          offset: 0,
+          nameStartsWith: search,
+        },
+      });
+      setCreators(response.data.data.results);
+    }
+    SearchHero();
+  }, [search]);
+
   return (
     <C.Container>
       <C.Header>Creators</C.Header>
+
+      <Input
+        placeholder="Search by creator"
+        value={search}
+        search={(e) => setSearch(e.target.value)}
+      />
 
       <C.Content>
         {creators.length === 0 ? (

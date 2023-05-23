@@ -10,9 +10,11 @@ import { CardList } from "../../components/CardList";
 import { Loading } from "../../components/Loading";
 
 import * as C from "./styles";
+import { Input } from "../../components/Input";
 
 export const Comics = () => {
   const [comics, setComics] = useState<PropsData[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     api
@@ -26,7 +28,7 @@ export const Comics = () => {
   const handleShowMore = useCallback(async () => {
     try {
       const offset = comics.length;
-      const response = await api.get("comics", {
+      const response = await api.get("/comics", {
         params: {
           offset,
         },
@@ -37,9 +39,29 @@ export const Comics = () => {
     }
   }, [comics]);
 
+  useEffect(() => {
+    async function SearchHero() {
+      const response = await api.get("/comics", {
+        params: {
+          limit: 15,
+          offset: 0,
+          nameStartsWith: search,
+        },
+      });
+      setComics(response.data.data.results);
+    }
+    SearchHero();
+  }, [search]);
+
   return (
     <C.Container>
       <C.HeaderComics>Comics</C.HeaderComics>
+
+      <Input
+        placeholder="Search by comics"
+        value={search}
+        search={(e) => setSearch(e.target.value)}
+      />
 
       <C.Content>
         {comics.length === 0 ? (
