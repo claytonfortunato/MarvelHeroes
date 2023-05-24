@@ -6,13 +6,11 @@ import { ArrowDown } from "phosphor-react";
 
 import { CardList } from "../../components/CardList";
 import { Loading } from "../../components/Loading";
-import { Input } from "../../components/Input";
 
 import * as C from "./styles";
 
 export const Series = () => {
   const [series, setSeries] = useState<PropsData[]>([]);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     api
@@ -22,20 +20,6 @@ export const Series = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  useEffect(() => {
-    async function SearchHero() {
-      const response = await api.get("series", {
-        params: {
-          limit: 15,
-          offset: 0,
-          nameStartsWith: search,
-        },
-      });
-      setSeries(response.data.data.results);
-    }
-    SearchHero();
-  }, [search]);
 
   const handleShowMore = useCallback(async () => {
     try {
@@ -54,12 +38,6 @@ export const Series = () => {
   return (
     <C.Container>
       <C.Header>Series</C.Header>
-
-      <Input
-        placeholder="Search by Series"
-        value={search}
-        search={(e) => setSearch(e.target.value)}
-      />
 
       <C.Content>
         {series.length === 0 ? (

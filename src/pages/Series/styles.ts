@@ -20,6 +20,7 @@ export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 100%;
 `;
 
 export const Button = styled.button`
