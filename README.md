@@ -15,7 +15,7 @@
   
 ## 👾 Deploy
 
-
+[Deploy](https://marvel-heroes-mnpa.vercel.app/)
 
 
 ## 🚀 Tecnologias
@@ -26,7 +26,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Styled-components
 - Axios
 - React-Router-Dom
-- Swiper
+- React Slick
 
 # :pushpin: Recursos
 - Consumo da API
