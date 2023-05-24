@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const Image = styled.img`
-  width: 240px;
-  height: 360px;
-  border-radius: 6px;
-  transition: all 0.5s ease-in;
-`;
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,9 +11,23 @@ export const Container = styled.div`
   position: relative;
   pointer-events: auto;
 
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+
   &:hover {
     transform: scale(1.04);
   }
+`;
+
+export const Image = styled.img`
+  width: 240px;
+  height: 360px;
+  border-radius: 6px;
+  transition: all 0.5s ease-in;
 `;
 
 export const Effect = styled.div`

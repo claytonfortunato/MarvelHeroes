@@ -3,17 +3,15 @@ import md5 from "md5";
 
 const ts = Number(new Date());
 
-const ApiKey = import.meta.env.VITE_KEYPUBLIC;
+import config from "../config";
 
-const privateKey = import.meta.env.VITE_APP_KEYPRIVATE;
-
-const hash = md5(ts + privateKey + ApiKey);
+const hash = md5(ts + config.keyPrivate + config.apiKey);
 
 const api = axios.create({
   baseURL: "http://gateway.marvel.com/v1/public",
   params: {
     ts,
-    apikey: ApiKey,
+    apikey: config.apiKey,
     hash,
   },
 });
