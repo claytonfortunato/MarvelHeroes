@@ -15,7 +15,7 @@
   
 ## 👾 Deploy
 
-[Deploy](https://marvel-heroes-mnpa.vercel.app/)
+[Deploy](https://delicate-druid-8b2d69.netlify.app/)
 
 
 ## 🚀 Tecnologias
