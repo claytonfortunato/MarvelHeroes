@@ -33,11 +33,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Detalhes de cards
 - Páginas de cada categoria
 - Campo de pesquisa
+- Responsividade
+- Menu mobile
 
 
 ## :memo: Getting Started
 
-Este ú um exemplo de como você pode executar o projeto localmente.
+Este é um exemplo de como você pode executar o projeto localmente.
 ### Installation
 
 1.  Clone the repo
@@ -52,9 +54,9 @@ npm install
 
 3.  Create `.env` file and enter your API Key and API URL on it
 ```sh
-VITE_KEYPUBLIC=
-VITE_KEYPRIVATE=
-VITE_URL_API=
+VITE_APP_KEYPUBLIC= 
+VITE_APP_KEYPRIVATE=
+VITE_APP_API=
 ```
 
 ### Running
